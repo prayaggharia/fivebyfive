@@ -7,7 +7,7 @@ import WaveformBars from '../components/ui/WaveformBars'
 const taglines = [
   'From soulful slow burns to 128 BPM madness.',
   'Where melody meets movement.',
-  'Curating feel-good house with emotional build-ups.',
+  'House so good, you call it home!',
 ]
 
 const stats = [
