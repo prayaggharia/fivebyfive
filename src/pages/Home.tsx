@@ -17,7 +17,7 @@ const stats = [
 ]
 
 const highlights = [
-  { icon: '❤️', event: "Valentine's Day Brewery Set", style: 'Soulful & Romantic House', bpm: '110–118' },
+  { icon: '❤️', event: "Brewery Set", style: 'Soulful House', bpm: '110–118' },
   { icon: '🍺', event: 'Oktoberfest Party', style: 'High Energy Dance Classics', bpm: '120–128' },
   { icon: '🍀', event: "St. Patrick's Day Party", style: 'Progressive Peak-Time Dance', bpm: '125–130' },
 ]
