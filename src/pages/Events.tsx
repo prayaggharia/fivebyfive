@@ -6,13 +6,13 @@ import PageTransition from '../components/ui/PageTransition'
 const pastEvents = [
   {
     icon: '❤️',
-    title: "Valentine's Day Brewery Set",
+    title: "Brewery Chill House Set",
     type: 'Seasonal Event',
-    vibe: 'Soulful & Romantic House',
+    vibe: 'Soulful & Chill House',
     bpm: '110–118',
-    setting: 'Brewery / Intimate Venue',
+    setting: 'Brewery',
     description:
-      "An emotional, soul-driven set built for Valentine's night — warm deep house grooves flowing into melodic, love-fueled anthems.",
+      "Sip your beers, get social and enjoy the music!",
     tags: ['Deep House', 'Soulful', 'Romantic'],
     color: 'from-rose-500/10 to-neon-pink/5',
     border: 'border-neon-pink/20',
