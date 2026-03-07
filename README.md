@@ -39,7 +39,7 @@ Routes: `/`, `/about`, `/mixes`, `/events`, `/contact`
 
 ```ts
 {
-  title: 'Valentine Brewery Set',
+  title: 'Brewery Set',
   description: 'Soulful deep house warmup into melodic peak',
   genre: 'Deep House',
   bpm: '112–118',
