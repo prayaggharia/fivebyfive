@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { RiFolderMusicLine, RiUploadCloudLine } from 'react-icons/ri'
+import { Link } from 'react-router-dom'
+import { RiFolderMusicLine, RiUploadCloudLine, RiCalendarEventLine } from 'react-icons/ri'
 import PageTransition from '../components/ui/PageTransition'
 import AudioPlayer from '../components/ui/AudioPlayer'
 import type { Track } from '../components/ui/AudioPlayer'
@@ -91,7 +92,7 @@ export default function Mixes() {
           )}
         </div>
 
-        {/* Set Type Cards */}
+        {/* Set Formats */}
         <section className="py-16 bg-dark-800/40 border-y border-white/5">
           <div className="max-w-5xl mx-auto px-6">
             <motion.div
@@ -100,8 +101,8 @@ export default function Mixes() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <p className="text-xs font-mono text-neon-purple uppercase tracking-widest mb-3">What to Expect</p>
-              <h2 className="text-4xl font-bold">Set <span className="text-gradient-purple">Formats</span></h2>
+              <p className="text-xs font-mono text-neon-purple uppercase tracking-widest mb-3">Available Formats</p>
+              <h2 className="text-4xl font-bold">Set <span className="text-gradient-purple">Types</span></h2>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -128,25 +129,14 @@ export default function Mixes() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
 
-        {/* SoundCloud embed placeholder */}
-        <section className="py-16 max-w-5xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="glass rounded-2xl p-8 border border-white/5 text-center"
-          >
-            <p className="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">Also available on</p>
-            <h3 className="text-2xl font-bold mb-6">SoundCloud & Streaming</h3>
-            {/* Replace the iframe src with your actual SoundCloud profile URL */}
-            <div className="bg-dark-800 rounded-xl p-8 text-white/30 font-mono text-sm border border-white/5">
-              {`<!-- Paste your SoundCloud embed iframe here -->`}
-              <p className="mt-2 text-white/20">e.g. SoundCloud widget or Mixcloud player</p>
+            <div className="text-center mt-10">
+              <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
+                <RiCalendarEventLine size={16} />
+                Book a Set
+              </Link>
             </div>
-          </motion.div>
+          </div>
         </section>
       </div>
     </PageTransition>

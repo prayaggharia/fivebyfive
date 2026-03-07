@@ -5,9 +5,7 @@ import { RiMenuLine, RiCloseLine } from 'react-icons/ri'
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
   { label: 'Mixes', path: '/mixes' },
-  { label: 'Events', path: '/events' },
   { label: 'Contact', path: '/contact' },
 ]
 
@@ -36,7 +34,6 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           <div className="relative w-10 h-10 flex items-center justify-center">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neon-cyan/20 to-neon-purple/20 group-hover:from-neon-cyan/40 group-hover:to-neon-purple/40 transition-all duration-300" />
@@ -47,7 +44,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
@@ -72,7 +68,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden text-white/60 hover:text-neon-cyan transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -81,7 +76,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div

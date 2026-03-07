@@ -28,7 +28,6 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    // Simulate send — wire up to your backend/Formspree/EmailJS here
     await new Promise((res) => setTimeout(res, 1500))
     setLoading(false)
     setSubmitted(true)
@@ -79,39 +78,17 @@ export default function Contact() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs font-mono text-white/40 uppercase tracking-widest mb-2 block">Name</label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        placeholder="Your name"
-                        value={form.name}
-                        onChange={handleChange}
-                        className={inputClass}
-                      />
+                      <input type="text" name="name" required placeholder="Your name" value={form.name} onChange={handleChange} className={inputClass} />
                     </div>
                     <div>
                       <label className="text-xs font-mono text-white/40 uppercase tracking-widest mb-2 block">Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        placeholder="your@email.com"
-                        value={form.email}
-                        onChange={handleChange}
-                        className={inputClass}
-                      />
+                      <input type="email" name="email" required placeholder="your@email.com" value={form.email} onChange={handleChange} className={inputClass} />
                     </div>
                   </div>
 
                   <div>
                     <label className="text-xs font-mono text-white/40 uppercase tracking-widest mb-2 block">Event Type</label>
-                    <select
-                      name="eventType"
-                      required
-                      value={form.eventType}
-                      onChange={handleChange}
-                      className={`${inputClass} cursor-pointer`}
-                    >
+                    <select name="eventType" required value={form.eventType} onChange={handleChange} className={`${inputClass} cursor-pointer`}>
                       <option value="" disabled>Select event type</option>
                       {eventTypes.map((t) => (
                         <option key={t} value={t} className="bg-dark-800">{t}</option>
@@ -122,38 +99,17 @@ export default function Contact() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs font-mono text-white/40 uppercase tracking-widest mb-2 block">Event Date</label>
-                      <input
-                        type="date"
-                        name="date"
-                        value={form.date}
-                        onChange={handleChange}
-                        className={`${inputClass} [color-scheme:dark]`}
-                      />
+                      <input type="date" name="date" value={form.date} onChange={handleChange} className={`${inputClass} [color-scheme:dark]`} />
                     </div>
                     <div>
                       <label className="text-xs font-mono text-white/40 uppercase tracking-widest mb-2 block">Venue / Location</label>
-                      <input
-                        type="text"
-                        name="venue"
-                        placeholder="Venue name or city"
-                        value={form.venue}
-                        onChange={handleChange}
-                        className={inputClass}
-                      />
+                      <input type="text" name="venue" placeholder="Venue name or city" value={form.venue} onChange={handleChange} className={inputClass} />
                     </div>
                   </div>
 
                   <div>
                     <label className="text-xs font-mono text-white/40 uppercase tracking-widest mb-2 block">Tell me about your event</label>
-                    <textarea
-                      name="message"
-                      required
-                      rows={5}
-                      placeholder="Describe the vibe, expected crowd size, set duration, and anything else relevant..."
-                      value={form.message}
-                      onChange={handleChange}
-                      className={`${inputClass} resize-none`}
-                    />
+                    <textarea name="message" required rows={5} placeholder="Describe the vibe, expected crowd size, set duration..." value={form.message} onChange={handleChange} className={`${inputClass} resize-none`} />
                   </div>
 
                   <motion.button
@@ -185,7 +141,6 @@ export default function Contact() {
               transition={{ delay: 0.3 }}
               className="md:col-span-2 space-y-6"
             >
-              {/* Info */}
               <div className="glass rounded-xl p-6 border border-white/5">
                 <h3 className="font-bold text-white mb-4">Booking Info</h3>
                 <div className="space-y-3 text-sm text-white/60">
@@ -197,9 +152,8 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Socials */}
               <div className="glass rounded-xl p-6 border border-white/5">
-                <h3 className="font-bold text-white mb-4">Follow Along</h3>
+                <h3 className="font-bold text-white mb-4">Connect</h3>
                 <div className="space-y-3">
                   {[
                     { icon: RiInstagramLine, label: 'Instagram', handle: '@fivebyfive', href: '#' },
@@ -221,15 +175,6 @@ export default function Contact() {
                     </a>
                   ))}
                 </div>
-              </div>
-
-              {/* Vision quote */}
-              <div className="glass rounded-xl p-6 border border-neon-purple/20 bg-neon-purple/5">
-                <p className="text-sm text-white/60 italic leading-relaxed">
-                  "From intimate brewery nights to full-scale dance parties — adaptable sets tailored to
-                  your room's energy."
-                </p>
-                <p className="text-xs font-mono text-neon-purple mt-3">— fivebyfive</p>
               </div>
             </motion.div>
           </div>

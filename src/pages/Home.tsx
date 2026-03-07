@@ -1,14 +1,8 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { RiArrowDownLine, RiCalendarEventLine, RiMusicLine } from 'react-icons/ri'
+import { RiArrowDownLine, RiCalendarEventLine, RiMusicLine, RiTimeLine, RiMapPinLine } from 'react-icons/ri'
 import PageTransition from '../components/ui/PageTransition'
 import WaveformBars from '../components/ui/WaveformBars'
-
-const taglines = [
-  'From soulful slow burns to 128 BPM madness.',
-  'Where melody meets movement.',
-  'Curating feel-good house with emotional build-ups.',
-]
 
 const stats = [
   { value: '110–130', label: 'BPM Range' },
@@ -16,10 +10,38 @@ const stats = [
   { value: '100%', label: 'Crowd Energy' },
 ]
 
-const highlights = [
-  { icon: '❤️', event: "Valentine's Day Brewery Set", style: 'Soulful & Romantic House', bpm: '110–118' },
-  { icon: '🍺', event: 'Oktoberfest Party', style: 'High Energy Dance Classics', bpm: '120–128' },
-  { icon: '🍀', event: "St. Patrick's Day Party", style: 'Progressive Peak-Time Dance', bpm: '125–130' },
+const events = [
+  {
+    icon: '❤️',
+    title: "Valentine's Day Brewery Set",
+    vibe: 'Soulful & Romantic House',
+    bpm: '110–118',
+    setting: 'Brewery / Intimate Venue',
+    tags: ['Deep House', 'Soulful'],
+  },
+  {
+    icon: '🍺',
+    title: 'Oktoberfest Party',
+    vibe: 'High Energy Dance Classics',
+    bpm: '120–128',
+    setting: 'Party Venue / Hall',
+    tags: ['Commercial Dance', 'High Energy'],
+  },
+  {
+    icon: '🍀',
+    title: "St. Patrick's Day Party",
+    vibe: 'Progressive Peak-Time Dance',
+    bpm: '118–130',
+    setting: 'Bar / Club',
+    tags: ['Progressive', 'Peak-Time'],
+  },
+]
+
+const quickFacts = [
+  { label: 'Based In', value: 'Canada' },
+  { label: 'Genre', value: 'House · Dance · Electronic' },
+  { label: 'Software', value: 'Serato DJ Pro / Rekordbox' },
+  { label: 'Format', value: 'USB-ready · Club Format' },
 ]
 
 export default function Home() {
@@ -27,12 +49,10 @@ export default function Home() {
     <PageTransition>
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
-        {/* Ambient glows */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-neon-cyan/5 blur-3xl pointer-events-none animate-pulse-slow" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-neon-purple/5 blur-3xl pointer-events-none animate-pulse-slow" style={{ animationDelay: '2s' }} />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-32 pb-20">
-          {/* DJ tag */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,7 +63,6 @@ export default function Home() {
             <span className="text-xs font-mono text-neon-cyan tracking-widest uppercase">DJ · Canada · House Music</span>
           </motion.div>
 
-          {/* Name */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -61,21 +80,15 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Taglines */}
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="space-y-1 mb-10"
+            className="text-base md:text-lg text-white/60 mb-10 max-w-lg mx-auto"
           >
-            {taglines.map((t, i) => (
-              <p key={i} className={`text-base md:text-lg ${i === 0 ? 'text-white/80' : 'text-white/40'}`}>
-                {t}
-              </p>
-            ))}
-          </motion.div>
+            From soulful slow burns to 128 BPM madness. Curating feel-good house with emotional build-ups.
+          </motion.p>
 
-          {/* Waveform */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -85,7 +98,6 @@ export default function Home() {
             <WaveformBars count={48} playing color="#00d4ff" />
           </motion.div>
 
-          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -103,7 +115,6 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30"
           animate={{ y: [0, 8, 0] }}
@@ -115,7 +126,7 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 border-y border-white/5 bg-dark-800/50">
+      <section className="py-16 border-y border-white/5 bg-dark-800/50">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-3 gap-8">
             {stats.map((stat, i) => (
@@ -135,13 +146,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About snippet */}
+      {/* About */}
       <section className="py-24 max-w-5xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-16 items-center"
+          className="grid md:grid-cols-2 gap-16 items-start"
         >
           <div>
             <p className="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">The Artist</p>
@@ -149,17 +160,22 @@ export default function Home() {
               Building journeys,<br />
               <span className="text-gradient">not just playlists.</span>
             </h2>
-            <p className="text-white/60 leading-relaxed mb-6">
-              Based in Canada, fivebyfive crafts dynamic house and dance sets designed to move both hearts
-              and dance floors. Known for smooth BPM progression and melodic transitions, the sound ranges
-              from soulful warm-ups to high-energy peak-hour anthems.
-            </p>
-            <Link to="/about" className="btn-primary inline-flex">
-              Full Bio
-            </Link>
+            <div className="space-y-4 text-white/60 leading-relaxed">
+              <p>
+                <span className="text-white font-semibold">fivebyfive</span> is a Canada-based DJ specializing in house and dance music
+                with a focus on musical storytelling. Starting with deeper grooves and gradually
+                elevating into driving, high-BPM energy, his sets are carefully structured to
+                create an emotional arc.
+              </p>
+              <p>
+                Known for tight phrasing, harmonic mixing, and intentional track selection — the sound
+                adapts to the room, from soulful brewery warm-ups to late-night dance sessions pushing 130 BPM.
+              </p>
+            </div>
           </div>
 
           <div className="space-y-4">
+            {/* BPM Journey */}
             <div className="glass rounded-xl p-5 neon-border">
               <div className="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-3">BPM Journey</div>
               <div className="space-y-3">
@@ -185,10 +201,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {['Harmonic Mixing', 'Long Blends', 'Vocal Layering', 'Crowd Connection'].map((skill) => (
-                <div key={skill} className="glass rounded-lg p-3 border border-neon-purple/20 text-center">
-                  <span className="text-xs text-white/50 font-mono">{skill}</span>
+            {/* Quick Facts */}
+            <div className="grid grid-cols-2 gap-3">
+              {quickFacts.map((fact) => (
+                <div key={fact.label} className="glass rounded-lg p-3 border border-white/5">
+                  <div className="text-[10px] font-mono text-neon-cyan/60 uppercase tracking-widest mb-1">{fact.label}</div>
+                  <div className="text-xs text-white/80 font-medium">{fact.value}</div>
                 </div>
               ))}
             </div>
@@ -196,7 +214,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Event Highlights */}
+      {/* Events */}
       <section className="py-24 bg-dark-800/30 border-y border-white/5">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
@@ -210,7 +228,7 @@ export default function Home() {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {highlights.map((h, i) => (
+            {events.map((e, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
@@ -218,29 +236,36 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
                 whileHover={{ y: -6 }}
-                className="glass neon-border-purple rounded-xl p-6 group"
+                className="glass neon-border-purple rounded-xl p-6"
               >
-                <div className="text-3xl mb-4">{h.icon}</div>
-                <h3 className="font-bold text-white mb-2">{h.event}</h3>
-                <p className="text-white/50 text-sm mb-4">{h.style}</p>
-                <span className="text-xs font-mono px-2 py-1 rounded-full border border-neon-cyan/30 text-neon-cyan">
-                  {h.bpm} BPM
-                </span>
+                <div className="text-3xl mb-3">{e.icon}</div>
+                <h3 className="font-bold text-white mb-1">{e.title}</h3>
+                <p className="text-white/50 text-sm mb-3">{e.vibe}</p>
+                <div className="flex flex-wrap gap-2 text-xs text-white/40 mb-3">
+                  <span className="flex items-center gap-1">
+                    <RiTimeLine size={12} className="text-neon-cyan" />
+                    {e.bpm} BPM
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <RiMapPinLine size={12} className="text-neon-cyan" />
+                    {e.setting}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {e.tags.map((tag) => (
+                    <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full border border-neon-cyan/20 text-neon-cyan/60 font-mono">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
             ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link to="/events" className="btn-secondary inline-flex items-center gap-2">
-              <RiCalendarEventLine size={16} />
-              View All Events
-            </Link>
           </div>
         </div>
       </section>
 
       {/* Booking CTA */}
-      <section className="py-28 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-radial from-neon-purple/10 via-transparent to-transparent" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <motion.div
@@ -248,16 +273,15 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <p className="text-xs font-mono text-neon-pink uppercase tracking-widest mb-4">Ready to elevate your event?</p>
-            <h2 className="text-5xl font-bold mb-6">
-              Let's build<br /><span className="text-gradient">something unforgettable.</span>
-            </h2>
-            <p className="text-white/50 mb-10 text-lg">
-              From intimate brewery nights to full-scale dance parties — adaptable sets tailored to your room.
-            </p>
-            <Link to="/contact" className="btn-primary text-base px-12 py-4">
-              Get in Touch
-            </Link>
+            <blockquote className="text-xl md:text-2xl font-medium text-white/70 leading-relaxed italic mb-8">
+              "My goal is to create immersive dance experiences that feel intentional, emotional, and energetic —
+              where every transition tells a story."
+            </blockquote>
+            <div className="text-neon-cyan font-mono text-sm mb-10">— fivebyfive</div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/mixes" className="btn-secondary">Hear the Sound</Link>
+              <Link to="/contact" className="btn-primary">Book an Event</Link>
+            </div>
           </motion.div>
         </div>
       </section>
