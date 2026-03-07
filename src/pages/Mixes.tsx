@@ -1,27 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { RiFolderMusicLine, RiUploadCloudLine, RiCalendarEventLine } from 'react-icons/ri'
+import { RiCalendarEventLine, RiSpotifyLine } from 'react-icons/ri'
 import PageTransition from '../components/ui/PageTransition'
-import AudioPlayer from '../components/ui/AudioPlayer'
-import type { Track } from '../components/ui/AudioPlayer'
-
-/**
- * HOW TO ADD YOUR MUSIC:
- * 1. Drop your audio files (MP3/WAV) into /public/music/
- * 2. Add entries to the `tracks` array below with the filename matching your file.
- * 3. Example: src: '/music/my-set.mp3'
- */
-const tracks: Track[] = [
-  // Add your tracks here. Example:
-  // {
-  //   title: 'Valentine Brewery Set',
-  //   description: 'Soulful deep house warmup into melodic peak',
-  //   genre: 'Deep House',
-  //   bpm: '112–118',
-  //   duration: '58:32',
-  //   src: '/music/valentine-set.mp3',
-  // },
-]
 
 const setTypes = [
   {
@@ -45,8 +25,6 @@ const setTypes = [
 ]
 
 export default function Mixes() {
-  const hasTracks = tracks.length > 0
-
   return (
     <PageTransition>
       <div className="pt-32 pb-24">
@@ -58,38 +36,47 @@ export default function Mixes() {
               The <span className="text-gradient">Mixes</span>
             </h1>
             <p className="text-white/50 text-lg max-w-xl">
-              Recorded sets, live mixes, and curated sessions — each one a journey from first beat to last drop.
+              Curated sessions and live sets — each one a journey from first beat to last drop.
             </p>
           </motion.div>
         </div>
 
-        {/* Player or Placeholder */}
+        {/* Spotify Playlist */}
         <div className="max-w-5xl mx-auto px-6 mb-20">
-          {hasTracks ? (
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-              <AudioPlayer tracks={tracks} />
-            </motion.div>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="glass neon-border rounded-2xl p-16 text-center"
-            >
-              <div className="w-20 h-20 rounded-full bg-neon-cyan/10 flex items-center justify-center mx-auto mb-6">
-                <RiFolderMusicLine size={36} className="text-neon-cyan" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3">Mixes Coming Soon</h3>
-              <p className="text-white/40 max-w-sm mx-auto mb-6 leading-relaxed">
-                Drop your audio files in <code className="text-neon-cyan font-mono text-sm bg-neon-cyan/10 px-2 py-0.5 rounded">/public/music/</code> and
-                add them to the tracks array in <code className="text-neon-purple font-mono text-sm bg-neon-purple/10 px-2 py-0.5 rounded">Mixes.tsx</code>.
-              </p>
-              <div className="inline-flex items-center gap-2 text-xs font-mono text-white/20 border border-white/10 rounded-full px-4 py-2">
-                <RiUploadCloudLine size={14} />
-                Supports MP3, WAV, FLAC
-              </div>
-            </motion.div>
-          )}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="glass neon-border rounded-2xl p-6 md:p-8"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <RiSpotifyLine size={22} className="text-[#1DB954]" />
+              <span className="text-xs font-mono text-white/40 uppercase tracking-widest">Now Playing on Spotify</span>
+            </div>
+            <div className="rounded-xl overflow-hidden">
+              <iframe
+                src="https://open.spotify.com/embed/playlist/0KQ3TcupS2Ps93gtNUG77t?utm_source=generator&theme=0"
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                style={{ borderRadius: 12 }}
+              />
+            </div>
+            <div className="mt-4 text-center">
+              <a
+                href="https://open.spotify.com/playlist/0KQ3TcupS2Ps93gtNUG77t"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-mono text-[#1DB954] hover:text-[#1ed760] transition-colors"
+              >
+                <RiSpotifyLine size={14} />
+                Open in Spotify
+              </a>
+            </div>
+          </motion.div>
         </div>
 
         {/* Set Formats */}
