@@ -4,22 +4,12 @@ import { RiArrowDownLine, RiCalendarEventLine, RiMusicLine, RiTimeLine, RiMapPin
 import PageTransition from '../components/ui/PageTransition'
 import WaveformBars from '../components/ui/WaveformBars'
 
-<<<<<<< HEAD
-=======
-const taglines = [
-  'From soulful slow burns to 128 BPM madness.',
-  'Where melody meets movement.',
-  'House so good, you call it home!',
-]
-
->>>>>>> 61d76fae6a2afda385c949cc113e6fb1ce5fd788
 const stats = [
   { value: '110–130', label: 'BPM Range' },
   { value: '4+', label: 'Signature Events' },
   { value: '100%', label: 'Crowd Energy' },
 ]
 
-<<<<<<< HEAD
 const events = [
   {
     icon: '❤️',
@@ -52,12 +42,6 @@ const quickFacts = [
   { label: 'Genre', value: 'House · Dance · Electronic' },
   { label: 'Software', value: 'Serato DJ Pro / Rekordbox' },
   { label: 'Format', value: 'USB-ready · Club Format' },
-=======
-const highlights = [
-  { icon: '❤️', event: "Brewery Set", style: 'Soulful House', bpm: '110–118' },
-  { icon: '🍺', event: 'Oktoberfest Party', style: 'High Energy Dance Classics', bpm: '120–128' },
-  { icon: '🍀', event: "St. Patrick's Day Party", style: 'Progressive Peak-Time Dance', bpm: '125–130' },
->>>>>>> 61d76fae6a2afda385c949cc113e6fb1ce5fd788
 ]
 
 export default function Home() {
